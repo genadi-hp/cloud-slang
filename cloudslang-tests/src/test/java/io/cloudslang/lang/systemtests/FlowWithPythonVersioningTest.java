@@ -28,7 +28,7 @@ import static org.junit.Assert.assertEquals;
 
 public class FlowWithPythonVersioningTest extends SystemsTestsParent {
     @Test
-    public void testFlowWithOperationIfDifferentVersions() throws Exception {
+    public void testFlowWithOperationWithDifferentVersions() throws Exception {
         URI flow = getClass().getResource("/yaml/versioning/py_flow.yaml").toURI();
         URI operation_sum3 = getClass().getResource("/yaml/versioning/py_dependency_sum3_op.sl").toURI();
         URI operation_sum5 = getClass().getResource("/yaml/versioning/py_dependency_sum5_op.sl").toURI();

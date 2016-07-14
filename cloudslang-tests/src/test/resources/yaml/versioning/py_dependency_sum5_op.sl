@@ -16,7 +16,7 @@ operation:
         required: true
   python_action:
     dependencies:
-      - 'cloudslang.release:ver:sum-5.0'
+      - 'ver == sum-5.0'
     script: |
       import ver.utils.getver as ver
       ver_label = ver.get_ver(var1,var2)

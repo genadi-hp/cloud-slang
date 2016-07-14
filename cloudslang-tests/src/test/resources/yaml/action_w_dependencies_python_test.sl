@@ -11,6 +11,6 @@ operation:
   name: action_w_dependencies_python_test
   python_action:
     dependencies:
-      - 'some.group:some.artifact:some_version-1.1'
-      - 'some.group1:some.artifact:some_version-2.1'
+      - 'some.artifact == some_version-1.1'
+      - 'some.artifact== some_version-2.1'
     script: 'print "hello world"'

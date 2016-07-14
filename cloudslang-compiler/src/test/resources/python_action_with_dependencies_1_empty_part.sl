@@ -11,7 +11,7 @@ operation:
   name: python_action_with_dependencies_1_empty_part
   python_action:
     dependencies:
-      - 'g:a:'
+      - 'a == '
     script: 'pass'
   results:
     - SUCCESS

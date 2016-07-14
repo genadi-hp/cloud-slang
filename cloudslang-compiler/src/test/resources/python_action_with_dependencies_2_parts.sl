@@ -11,7 +11,7 @@ operation:
   name: python_action_with_dependencies_2_parts
   python_action:
     dependencies:
-      - 'g::v1'
+      - ''
     script: 'pass'
   results:
     - SUCCESS

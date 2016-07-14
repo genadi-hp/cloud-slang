@@ -11,7 +11,7 @@ operation:
   name: python_action_with_dependencies_all_empty_parts
   python_action:
     dependencies:
-      - '::'
+      - ' = = '
     script: 'pass'
   results:
     - SUCCESS

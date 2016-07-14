@@ -16,7 +16,7 @@ operation:
         required: true
   python_action:
     dependencies:
-      - 'com.hp.oo.platformactions.pythonactions:buildversion:10.70.00-SNAPSHOT'
+      - 'buildversion==10.70.00-SNAPSHOT'
     script: |
       import ver.utils.getver as ver
       ver_label = ver.get_ver(var1,var2)

@@ -57,7 +57,7 @@ public class OperationWithDependenciesSystemTest extends SystemsTestsParent {
         assertNotNull(dependencies);
 
         assertTrue(dependencies.size() == 2);
-        assertEquals("some.group:some.artifact:some_version-1.1", dependencies.get(0));
-        assertEquals("some.group1:some.artifact:some_version-2.1", dependencies.get(1));
+        assertEquals("some.artifact==some_version-1.1", dependencies.get(0));
+        assertEquals("some.artifact==some_version-2.1", dependencies.get(1));
     }
 }

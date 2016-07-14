@@ -28,7 +28,7 @@ import java.util.Set;
 @Component
 public class JavaActionTransformer extends AbstractTransformer implements Transformer<Map<String, String>, Map<String, String>> {
     @Autowired
-    private DependencyFormatValidator dependencyFormatValidator;
+    private GAVFormatValidator GAVFormatValidator;
 
     private static Set<String> mandatoryKeySet = Sets.newHashSet(
             SlangTextualKeys.JAVA_ACTION_CLASS_NAME_KEY,
@@ -57,7 +57,7 @@ public class JavaActionTransformer extends AbstractTransformer implements Transf
         rawData.put(ScoreLangConstants.JAVA_ACTION_CLASS_KEY, rawData.remove(SlangTextualKeys.JAVA_ACTION_CLASS_NAME_KEY));
         rawData.put(ScoreLangConstants.JAVA_ACTION_METHOD_KEY, rawData.remove(SlangTextualKeys.JAVA_ACTION_METHOD_NAME_KEY));
         String gav = rawData.remove(SlangTextualKeys.JAVA_ACTION_GAV_KEY);
-        dependencyFormatValidator.validateDependency(gav);
+        GAVFormatValidator.validateGAV(gav);
         rawData.put(ScoreLangConstants.JAVA_ACTION_GAV_KEY, gav);
     }
 
