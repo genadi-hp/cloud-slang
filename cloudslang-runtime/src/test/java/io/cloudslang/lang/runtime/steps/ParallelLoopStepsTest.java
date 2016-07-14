@@ -30,6 +30,11 @@ import io.cloudslang.lang.runtime.env.Context;
 import io.cloudslang.lang.runtime.env.ReturnValues;
 import io.cloudslang.lang.runtime.env.RunEnvironment;
 import io.cloudslang.lang.runtime.events.LanguageEventData;
+import io.cloudslang.pypi.*;
+import io.cloudslang.pypi.transformers.EggPackageTransformer;
+import io.cloudslang.pypi.transformers.PackageTransformer;
+import io.cloudslang.pypi.transformers.TarballPackageTransformer;
+import io.cloudslang.pypi.transformers.WheelPackageTransformer;
 import io.cloudslang.runtime.api.python.PythonRuntimeService;
 import io.cloudslang.runtime.impl.python.PythonExecutionCachedEngine;
 import io.cloudslang.runtime.impl.python.PythonExecutionEngine;
@@ -572,6 +577,41 @@ public class ParallelLoopStepsTest {
         @Bean
         public DummyEncryptor dummyEncryptor() {
             return new DummyEncryptor();
+        }
+
+        @Bean
+        public Pip2MavenAdapter pip2MavenAdapter() {
+            return new Pip2MavenAdapterImpl();
+        }
+
+        @Bean
+        public Pip2MavenTransformer pip2MavenTransformer() {
+            return new Pip2MavenTransformerImpl();
+        }
+
+        @Bean
+        public Pip pip() {
+            return new PipImpl();
+        }
+
+        @Bean
+        public PackageTransformer wheelPackageTransformer() {
+            return new WheelPackageTransformer();
+        }
+
+        @Bean
+        public PackageTransformer eggPackageTransformer() {
+            return new EggPackageTransformer();
+        }
+
+        @Bean
+        public PackageTransformer tarballPackageTransformer() {
+            return new TarballPackageTransformer();
+        }
+
+        @Bean
+        public Pip2MavenTransformer pip2Maven() {
+            return new Pip2MavenTransformerImpl();
         }
     }
 }

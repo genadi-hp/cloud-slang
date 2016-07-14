@@ -8,6 +8,11 @@ import io.cloudslang.lang.entities.SystemProperty;
 import io.cloudslang.lang.entities.bindings.ScriptFunction;
 import io.cloudslang.lang.entities.bindings.values.Value;
 import io.cloudslang.lang.entities.bindings.values.ValueFactory;
+import io.cloudslang.pypi.*;
+import io.cloudslang.pypi.transformers.EggPackageTransformer;
+import io.cloudslang.pypi.transformers.PackageTransformer;
+import io.cloudslang.pypi.transformers.TarballPackageTransformer;
+import io.cloudslang.pypi.transformers.WheelPackageTransformer;
 import io.cloudslang.runtime.api.python.PythonEvaluationResult;
 import io.cloudslang.runtime.api.python.PythonRuntimeService;
 import io.cloudslang.runtime.impl.python.PythonExecutionCachedEngine;
@@ -177,6 +182,41 @@ public class ScriptEvaluatorTest {
                     };
                 }
             };
+        }
+
+        @Bean
+        public Pip2MavenAdapter pip2MavenAdapter() {
+            return new Pip2MavenAdapterImpl();
+        }
+
+        @Bean
+        public Pip2MavenTransformer pip2MavenTransformer() {
+            return new Pip2MavenTransformerImpl();
+        }
+
+        @Bean
+        public Pip pip() {
+            return new PipImpl();
+        }
+
+        @Bean
+        public PackageTransformer wheelPackageTransformer() {
+            return new WheelPackageTransformer();
+        }
+
+        @Bean
+        public PackageTransformer eggPackageTransformer() {
+            return new EggPackageTransformer();
+        }
+
+        @Bean
+        public PackageTransformer tarballPackageTransformer() {
+            return new TarballPackageTransformer();
+        }
+
+        @Bean
+        public Pip2MavenTransformer pip2Maven() {
+            return new Pip2MavenTransformerImpl();
         }
     }
 }

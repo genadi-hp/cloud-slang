@@ -22,4 +22,13 @@
     <score:worker uuid="-1"/>
 
     <bean class="io.cloudslang.lang.systemtests.TriggerFlows"/>
+
+    <bean class="io.cloudslang.pypi.PipImpl"/>
+    <bean class="io.cloudslang.pypi.Pip2MavenTransformerImpl"/>
+    <bean class="io.cloudslang.pypi.Pip2MavenAdapterImpl"/>
+    <bean class="io.cloudslang.pypi.transformers.EggPackageTransformer"/>
+    <bean class="io.cloudslang.pypi.transformers.TarballPackageTransformer"/>
+    <bean class="io.cloudslang.pypi.transformers.WheelPackageTransformer"/>
+    <bean class="io.cloudslang.pypi.transformers.ZipPackageTransformer"/>
+
 </beans>
