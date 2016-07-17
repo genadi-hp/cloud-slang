@@ -19,6 +19,7 @@ import io.cloudslang.lang.entities.CompilationArtifact;
 import io.cloudslang.lang.entities.SystemProperty;
 import io.cloudslang.lang.entities.bindings.values.SensitiveValue;
 import io.cloudslang.lang.entities.bindings.values.Value;
+import io.cloudslang.pypi.Pip;
 import io.cloudslang.runtime.impl.python.PythonExecutionCachedEngine;
 import io.cloudslang.score.events.ScoreEvent;
 import org.junit.Rule;
@@ -73,6 +74,11 @@ public abstract class SystemsTestsParent {
         System.out.println("Maven repo [" + mavenRepo.getAbsolutePath() + "]");
 
         UnzipUtil.unzipToFolder(mavenHome.getAbsolutePath(), classLoader.getResourceAsStream("maven.zip"));
+
+        File pythonLibHome = new File(rootHome, "python-lib");
+        UnzipUtil.unzipToFolder(pythonLibHome.getAbsolutePath(), classLoader.getResourceAsStream("pip-8.1.2-py2.py3-none-any.whl"));
+        System.setProperty(Pip.PYTHON_LIB, pythonLibHome.getAbsolutePath());
+        System.setProperty(Pip.PYPI_REPOSITORY_PROPERTY, Pip.DEFAULT_PYPI_REPOSITORY);
 
         System.setProperty(MavenConfigImpl.MAVEN_HOME, mavenHome.getAbsolutePath());
 

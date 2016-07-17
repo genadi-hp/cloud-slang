@@ -158,12 +158,7 @@ public class ActionExecutionData extends AbstractExecutionData {
     }
 
     private Set<String> normalizePythonDependencies(Collection<String> dependencies) {
-        Set<String> pythonDependencies = dependencies == null || dependencies.isEmpty() ? Sets.<String>newHashSet() : new HashSet<>(dependencies);
-        Set<String> normalizedDependencies = new HashSet<>(pythonDependencies.size());
-        for (String dependency: pythonDependencies) {
-            normalizedDependencies.add(normalizeGav(dependency, PACKAGING_TYPE_ZIP));
-        }
-        return normalizedDependencies;
+        return dependencies == null || dependencies.isEmpty() ? Sets.<String>newHashSet() : new HashSet<>(dependencies);
     }
 
     private Map<String, Value> prepareAndRunPythonAction(Collection<String> dependencies, String pythonScript, Map<String, Value> callArguments) {
