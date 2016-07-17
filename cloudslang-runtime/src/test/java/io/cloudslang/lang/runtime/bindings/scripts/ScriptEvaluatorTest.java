@@ -9,7 +9,6 @@ import io.cloudslang.lang.entities.bindings.ScriptFunction;
 import io.cloudslang.lang.entities.bindings.values.Value;
 import io.cloudslang.lang.entities.bindings.values.ValueFactory;
 import io.cloudslang.pypi.*;
-import io.cloudslang.pypi.transformers.EggPackageTransformer;
 import io.cloudslang.pypi.transformers.PackageTransformer;
 import io.cloudslang.pypi.transformers.TarballPackageTransformer;
 import io.cloudslang.pypi.transformers.WheelPackageTransformer;
@@ -18,12 +17,6 @@ import io.cloudslang.runtime.api.python.PythonRuntimeService;
 import io.cloudslang.runtime.impl.python.PythonExecutionCachedEngine;
 import io.cloudslang.runtime.impl.python.PythonExecutionEngine;
 import io.cloudslang.runtime.impl.python.PythonExecutor;
-import java.io.Serializable;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 import junit.framework.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -39,15 +32,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.mockito.Matchers.any;
+import java.io.Serializable;
+import java.util.*;
+
 import static org.mockito.Matchers.anyMap;
 import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.anyString;
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.reset;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ScriptEvaluatorTest.Config.class)
@@ -202,11 +192,6 @@ public class ScriptEvaluatorTest {
         @Bean
         public PackageTransformer wheelPackageTransformer() {
             return new WheelPackageTransformer();
-        }
-
-        @Bean
-        public PackageTransformer eggPackageTransformer() {
-            return new EggPackageTransformer();
         }
 
         @Bean

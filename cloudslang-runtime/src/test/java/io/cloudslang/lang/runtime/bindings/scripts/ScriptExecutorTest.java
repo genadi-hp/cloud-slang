@@ -1,13 +1,12 @@
 package io.cloudslang.lang.runtime.bindings.scripts;
 
-import io.cloudslang.lang.entities.bindings.values.Value;
-import io.cloudslang.lang.entities.bindings.values.ValueFactory;
 import io.cloudslang.dependency.api.services.DependencyService;
 import io.cloudslang.dependency.api.services.MavenConfig;
 import io.cloudslang.dependency.impl.services.DependencyServiceImpl;
 import io.cloudslang.dependency.impl.services.MavenConfigImpl;
+import io.cloudslang.lang.entities.bindings.values.Value;
+import io.cloudslang.lang.entities.bindings.values.ValueFactory;
 import io.cloudslang.pypi.*;
-import io.cloudslang.pypi.transformers.EggPackageTransformer;
 import io.cloudslang.pypi.transformers.PackageTransformer;
 import io.cloudslang.pypi.transformers.TarballPackageTransformer;
 import io.cloudslang.pypi.transformers.WheelPackageTransformer;
@@ -148,11 +147,6 @@ public class ScriptExecutorTest {
         @Bean
         public PackageTransformer wheelPackageTransformer() {
             return new WheelPackageTransformer();
-        }
-
-        @Bean
-        public PackageTransformer eggPackageTransformer() {
-            return new EggPackageTransformer();
         }
 
         @Bean

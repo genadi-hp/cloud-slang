@@ -33,7 +33,6 @@ import io.cloudslang.lang.runtime.env.ReturnValues;
 import io.cloudslang.lang.runtime.env.RunEnvironment;
 import io.cloudslang.lang.runtime.events.LanguageEventData;
 import io.cloudslang.pypi.*;
-import io.cloudslang.pypi.transformers.EggPackageTransformer;
 import io.cloudslang.pypi.transformers.PackageTransformer;
 import io.cloudslang.pypi.transformers.TarballPackageTransformer;
 import io.cloudslang.pypi.transformers.WheelPackageTransformer;
@@ -53,21 +52,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-import static org.mockito.Matchers.anyMap;
-import static org.mockito.Matchers.anyMapOf;
-import static org.mockito.Matchers.anySet;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Matchers.isNull;
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -393,11 +380,6 @@ public class ExecutableStepsTest {
         @Bean
         public PackageTransformer wheelPackageTransformer() {
             return new WheelPackageTransformer();
-        }
-
-        @Bean
-        public PackageTransformer eggPackageTransformer() {
-            return new EggPackageTransformer();
         }
 
         @Bean

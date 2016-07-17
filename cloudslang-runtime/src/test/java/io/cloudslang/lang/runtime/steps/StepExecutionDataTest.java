@@ -27,15 +27,9 @@ import io.cloudslang.lang.runtime.bindings.ArgumentsBinding;
 import io.cloudslang.lang.runtime.bindings.LoopsBinding;
 import io.cloudslang.lang.runtime.bindings.OutputsBinding;
 import io.cloudslang.lang.runtime.bindings.scripts.ScriptEvaluator;
-import io.cloudslang.lang.runtime.env.Context;
-import io.cloudslang.lang.runtime.env.ForLoopCondition;
-import io.cloudslang.lang.runtime.env.LoopCondition;
-import io.cloudslang.lang.runtime.env.ParentFlowData;
-import io.cloudslang.lang.runtime.env.ReturnValues;
-import io.cloudslang.lang.runtime.env.RunEnvironment;
+import io.cloudslang.lang.runtime.env.*;
 import io.cloudslang.lang.runtime.events.LanguageEventData;
 import io.cloudslang.pypi.*;
-import io.cloudslang.pypi.transformers.EggPackageTransformer;
 import io.cloudslang.pypi.transformers.PackageTransformer;
 import io.cloudslang.pypi.transformers.TarballPackageTransformer;
 import io.cloudslang.pypi.transformers.WheelPackageTransformer;
@@ -59,24 +53,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static org.mockito.Matchers.anyMapOf;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.anyListOf;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.reset;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = StepExecutionDataTest.Config.class)
@@ -567,11 +550,6 @@ public class StepExecutionDataTest {
         @Bean
         public PackageTransformer wheelPackageTransformer() {
             return new WheelPackageTransformer();
-        }
-
-        @Bean
-        public PackageTransformer eggPackageTransformer() {
-            return new EggPackageTransformer();
         }
 
         @Bean

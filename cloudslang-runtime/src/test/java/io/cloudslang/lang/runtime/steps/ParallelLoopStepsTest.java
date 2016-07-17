@@ -9,11 +9,11 @@
 *******************************************************************************/
 package io.cloudslang.lang.runtime.steps;
 
-import io.cloudslang.lang.entities.ParallelLoopStatement;
-import io.cloudslang.dependency.api.services.MavenConfig;
 import io.cloudslang.dependency.api.services.DependencyService;
+import io.cloudslang.dependency.api.services.MavenConfig;
 import io.cloudslang.dependency.impl.services.DependencyServiceImpl;
 import io.cloudslang.dependency.impl.services.MavenConfigImpl;
+import io.cloudslang.lang.entities.ParallelLoopStatement;
 import io.cloudslang.lang.entities.ResultNavigation;
 import io.cloudslang.lang.entities.ScoreLangConstants;
 import io.cloudslang.lang.entities.bindings.Output;
@@ -22,16 +22,15 @@ import io.cloudslang.lang.entities.bindings.values.ValueFactory;
 import io.cloudslang.lang.entities.encryption.DummyEncryptor;
 import io.cloudslang.lang.entities.utils.ApplicationContextProvider;
 import io.cloudslang.lang.runtime.RuntimeConstants;
-import io.cloudslang.lang.runtime.bindings.ParallelLoopBinding;
 import io.cloudslang.lang.runtime.bindings.LoopsBinding;
 import io.cloudslang.lang.runtime.bindings.OutputsBinding;
+import io.cloudslang.lang.runtime.bindings.ParallelLoopBinding;
 import io.cloudslang.lang.runtime.bindings.scripts.ScriptEvaluator;
 import io.cloudslang.lang.runtime.env.Context;
 import io.cloudslang.lang.runtime.env.ReturnValues;
 import io.cloudslang.lang.runtime.env.RunEnvironment;
 import io.cloudslang.lang.runtime.events.LanguageEventData;
 import io.cloudslang.pypi.*;
-import io.cloudslang.pypi.transformers.EggPackageTransformer;
 import io.cloudslang.pypi.transformers.PackageTransformer;
 import io.cloudslang.pypi.transformers.TarballPackageTransformer;
 import io.cloudslang.pypi.transformers.WheelPackageTransformer;
@@ -597,11 +596,6 @@ public class ParallelLoopStepsTest {
         @Bean
         public PackageTransformer wheelPackageTransformer() {
             return new WheelPackageTransformer();
-        }
-
-        @Bean
-        public PackageTransformer eggPackageTransformer() {
-            return new EggPackageTransformer();
         }
 
         @Bean
